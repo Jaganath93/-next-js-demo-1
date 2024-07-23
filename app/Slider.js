@@ -22,8 +22,8 @@ export function Slider() {
     const slideImgs = useSelector((state)=> state.slider)
   return (
     <Carousel className='mt-5'>
-    {slideImgs?.map((slide)=>(
-        <Carousel.Item>
+    {slideImgs?.map((slide,i)=>(
+        <Carousel.Item key={i}>
         <Image src={slide} fluid />
         </Carousel.Item>
     ))}

@@ -1,15 +1,18 @@
 "use client";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setApartment } from "./slices/apartmentReducer";
 import { useState, useEffect } from "react";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { data } from "./data";
+import { Cards } from "./Cards";
 
 
 export const Apartment = ()=>{
 
     // const [apartment, setApartMents] = useState([]);
+    const dispatch = useDispatch();
+
     const [all, setAll] = useState(true);
     const [twoBhk, setTwoBhk] = useState(false);
     const [threeBhk, setThreeBhk] = useState(false);
@@ -21,7 +24,8 @@ export const Apartment = ()=>{
     useEffect(()=>{
         const filteredData = data.filter((dt)=>dt.location === location);
         const mysApartments = filteredData[0].apartments;
-        setApartment(mysApartments);
+        dispatch(setApartment(mysApartments))
+        // console.log(apartment)
     },[location]);
 
     const handleFilterTwo = ()=> {

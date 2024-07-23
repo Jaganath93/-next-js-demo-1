@@ -1,0 +1,34 @@
+/* Navbar */
+.navbar-logo{
+    height: 60px;
+}
+
+.nav-li{
+    font-weight: 500;
+}
+
+.card-img{
+    max-height: 200px;
+    border-radius: 10px;
+}
+
+.agent-img{
+    border-radius: 50%;
+    max-height: 200px;
+    max-width: 200px;
+    object-fit: cover;
+}
+
+.agent-card{
+    transition: transform .5s;
+    cursor: pointer;
+}
+
+.agent-card:hover{
+    transform: scale(1.1);
+}
+
+.img-radius{
+    border-radius: 20px;
+}
+
