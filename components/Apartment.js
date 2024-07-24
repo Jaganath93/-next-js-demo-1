@@ -1,16 +1,16 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
-import { setApartment } from "./slices/apartmentReducer";
 import { useState, useEffect } from "react";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import { data } from "./data";
-import { Cards } from "./Cards";
+import { Cards } from "../components/Cards";
+import axios from "axios";
+import { API } from "../config/api";
+import { getApartmentsFetch, setApartment } from "@/redux/saga/actionsCreators";
 
 
 export const Apartment = ()=>{
 
-    // const [apartment, setApartMents] = useState([]);
     const dispatch = useDispatch();
 
     const [all, setAll] = useState(true);
@@ -18,14 +18,28 @@ export const Apartment = ()=>{
     const [threeBhk, setThreeBhk] = useState(false);
 
     const location = useSelector((state)=> state.location);
-    const apartment = useSelector((state)=> state.apartment);
-    console.log(apartment)
+    const apartmentData = useSelector((state)=> state.apartment);
+    const apartment = useSelector((state)=> state.getApartMentReducer);
+
+
 
     useEffect(()=>{
-        const filteredData = data.filter((dt)=>dt.location === location);
+        const fetchApartment = ()=> dispatch(getApartmentsFetch());
+        fetchApartment();
+
+        const fetchData = async()=>{
+        try {
+        const filteredData = apartmentData?.filter((dt)=>dt.location === location);
         const mysApartments = filteredData[0].apartments;
-        dispatch(setApartment(mysApartments))
-        // console.log(apartment)
+        console.log(mysApartments);
+        dispatch(setApartment(mysApartments));
+        } catch (error) {
+            console.error("Error Occured", error);
+        }
+        };
+
+        fetchData();
+        
     },[location]);
 
     const handleFilterTwo = ()=> {

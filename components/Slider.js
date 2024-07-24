@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image';
 
 import { Carousel } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
-import { setSlider } from './slices/sliderReducer';
+import { setSlider } from '../slices/sliderReducer';
 import { useEffect } from 'react';
 
 export function Slider() {

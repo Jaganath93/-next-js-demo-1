@@ -1,10 +1,11 @@
 "use client"
 import { useSelector,TypedUseSelectorHook, useDispatch } from "react-redux";
-import { setLocation } from "./slices/locationReducer";
-import { data } from "./data";
+// import { setLocation } from "../redux/saga/actions";
+import { data } from "../config/data";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { setLocation } from "@/redux/saga/actionsCreators";
 
 
 

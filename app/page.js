@@ -1,7 +1,7 @@
 import Link from "next/link";
-import NavbarCom from "./Navbar";
-import { Slider } from "./Slider";
-import { Apartment } from "./Apartment";
+import NavbarCom from "../components/Navbar";
+import { Slider } from "../components/Slider";
+import { Apartment } from "../components/Apartment";
 
 
 export default function Home() {
