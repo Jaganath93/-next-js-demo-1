@@ -31,7 +31,7 @@ export const Apartment = ()=>{
         try {
         const filteredData = apartmentData?.filter((dt)=>dt.location === location);
         const mysApartments = filteredData[0].apartments;
-        console.log(mysApartments);
+        // console.log(mysApartments);
         dispatch(setApartment(mysApartments));
         } catch (error) {
             console.error("Error Occured", error);
@@ -40,35 +40,35 @@ export const Apartment = ()=>{
 
         fetchData();
         
-    },[location]);
+    },[location,all,twoBhk,threeBhk]);
 
     const handleFilterTwo = ()=> {
         setThreeBhk(false);
         setAll(false);
         setTwoBhk(true);
-        const filteredData = data.filter((dt)=>dt.location === location);
-        const apartmentArray = filteredData[0].apartments;
-        const apartmentTwoBhk = apartmentArray?.filter((apt)=> apt.bhk === 2);
-        if(apartmentTwoBhk.length>0) setApartment(apartmentTwoBhk) 
+        // const filteredData = apartmentData?.filter((dt)=>dt.location === location);
+        // const apartmentArray = filteredData[0].apartments;
+        const apartmentTwoBhk = apartment?.filter((apt)=> apt.bhk === 2);
+        if(apartmentTwoBhk.length>0) dispatch(setApartment(apartmentTwoBhk)) 
     }
 
     const handleFilterThree = ()=> {
         setTwoBhk(false);
         setAll(false);
         setThreeBhk(true);
-        const filteredData = data.filter((dt)=>dt.location === location);
-        const apartmentArray = filteredData[0].apartments;
-        const apartmentThreeBhk = apartmentArray?.filter((apt)=> apt.bhk ===3);
-        if(apartmentThreeBhk.length>0) setApartment(apartmentThreeBhk) 
+        // const filteredData = apartmentData?.filter((dt)=>dt.location === location);
+        // const apartmentArray = filteredData[0].apartments;
+        const apartmentThreeBhk = apartment?.filter((apt)=> apt.bhk ===3);
+        if(apartmentThreeBhk.length>0) dispatch(setApartment(apartmentThreeBhk)) 
     };
 
     const handleFilterAll = ()=>{
         setTwoBhk(false);
         setThreeBhk(false);
         setAll(true);
-        const filteredData = data.filter((dt)=>dt.location === location);
-        const apartmentArray = filteredData[0].apartments;
-        setApartment(apartmentArray)
+        // const filteredData = apartmentData?.filter((dt)=>dt.location === location);
+        // const apartmentArray = filteredData[0].apartments;
+        dispatch(setApartment(apartment))
     }
 
      //Carousel Part
