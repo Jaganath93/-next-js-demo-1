@@ -30,14 +30,14 @@ export default function NavbarCom() {
     return(
         <nav className="navbar navbar-expand-md bg-body-tertiary fixed-top bg-light">
   <div className="container-fluid">
-  <a className="navbar-brand">
+  <div className="navbar-brand">
     <div className="d-flex justify-content-between">
       <div>
       <img src={logo} alt="Logo" className="d-inline-block align-text-top d-none d-lg-block nav-logo"/>
       <img src={logo_md} alt="Logo" className="d-inline-block align-text-top d-block d-lg-none nav-logo"/>
       </div>
       <div className="mt-2">
-      <Dropdown>
+      {/* <Dropdown>
       <Dropdown.Toggle className="btn btn-secondary dropdown-toggle bg-white text-dark border-0 ms-2" id="dropdown-basic">
         {location}
       </Dropdown.Toggle>
@@ -45,10 +45,20 @@ export default function NavbarCom() {
       <Dropdown.Menu>
         {data.map((dt,i)=> <Dropdown.Item key={i} role="button" onClick={()=>handleLocation(dt.location)}>{dt.location}</Dropdown.Item>)}
       </Dropdown.Menu>
-    </Dropdown>
+    </Dropdown> */}
+
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    {location}
+  </button>
+  <ul class="dropdown-menu">
+    {data.map((dt,i)=> <li><a class="dropdown-item" role="button" onClick={()=>handleLocation(dt.location)}>{dt.location}</a></li>)}
+  </ul>
+</div>
+
       </div>
       </div>
-    </a>
+    </div>
     <div className="d-flex">
     {/* <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">

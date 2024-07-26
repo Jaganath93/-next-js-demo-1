@@ -2,6 +2,7 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Providers } from "../redux/provider";
 import "../style.css"
+import BootstrapClient from "@/components/BootstrapClient";
 
 
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body >
         <Providers>{children}</Providers>
+        <BootstrapClient/>
       </body>
     </html>
   );
